@@ -69,11 +69,12 @@ function createOrder() {
 function verifyPayment(orderId, paymentId, signature) {
      $.post("/verify", { orderId: orderId, paymentId: paymentId, signature: signature })
          .done(function(isValid) {
-             if (isValid) {
+       if (isValid) {
                  alert("Payment successful");
-                 window.location.href='payment-success';
+                 window.location.href = 'payment-success';
              } else {
                  alert("Payment failed");
+                 window.location.href = 'payment-failure';
              }
          })
          .fail(function(error) {
